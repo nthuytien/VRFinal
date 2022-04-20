@@ -1,4 +1,4 @@
-﻿import viz
+import viz
 import viztask
 import vizact
 import vizinfo
@@ -21,7 +21,12 @@ manager = vizproximity.Manager()
 manager.setDebug(viz.ON)
 debugEventHandle = vizact.onkeydown('d',manager.setDebug,viz.TOGGLE)
 
-########################Add Spheres ##############################3
+#Play background music
+back_music = viz.addAudio('back_music.wav')
+back_music.loop(viz.ON)
+back_music.play()
+
+########################Add Spheres ##############################
 target = vizproximity.Target(viz.MainView)
 manager.addTarget(target)
 sphereSensors = []
@@ -219,7 +224,7 @@ def Q3SetUp(e):
 	hintpanel.visible(viz.OFF)
 	if e.sensor == sensor3 or e.sensor == sensor4:
 		instructions.setText("Please follow Pigeon to the next question")
-		pigeon.runAction(vizact.walkTo([4.5,0,30], 5))
+		pigeon.runAction(vizact.walkTo([4.5,0,30]))
 
 		
 		
@@ -274,6 +279,8 @@ def celebration(e):
 			duck2.visible(viz.ON)
 			duck3.visible(viz.ON)
 			instructions.setText("Congrats! You have gotten all the questions right!")
+			cheering = viz.addAudio('cheering.wav')
+			back_music.play()
 		else:
 			instructions.setText(str(correct) + " correct. No Celebration for you :(")
 			
