@@ -224,7 +224,7 @@ def Q3SetUp(e):
 	hintpanel.visible(viz.OFF)
 	if e.sensor == sensor3 or e.sensor == sensor4:
 		instructions.setText("Please follow Pigeon to the next question")
-		pigeon.runAction(vizact.walkTo([4.5,0,30]))
+		pigeon.runAction(vizact.walkTo([4.5,0,30], 5))
 
 		
 		
@@ -268,7 +268,7 @@ def CelSetUp(e):
 	hintpanel.visible(viz.OFF)
 	if e.sensor == sensor5 or e.sensor == sensor6:
 		instructions.setText("Please follow Pigeon to the Judgement Zone")
-		pigeon.runAction(vizact.walkTo([4.5,0,45]))
+		pigeon.runAction(vizact.walkTo([4.5,0,45], 5))
 
 def celebration(e):
 	if e.sensor == finalCenter:
