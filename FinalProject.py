@@ -102,16 +102,22 @@ number1 = random.randint(1,10)
 number2 = random.randint(1,10)
 correctSum = number1 + number2
 incorrectSum = random.randint(2,20)
+while incorrectSum == correctSum:
+	incorrectSum = rand.randint(1,20)
 
 number3 = random.randint(10,20)
 number4 = random.randint(1,10)
 correctDifference = number3 - number4
 incorrectDifference = random.randint(2,20)
+while incorrectDifference == correctDifference:
+	incorrectDifference = rand.randint(1,20)
 
 number5 = random.randint(1,10)
 number6 = random.randint(1,10)
 correctProduct = number5 * number6
 incorrectProduct = random.randint(1,100)
+while incorrectProduct == correctProduct:
+	incorrectProduct = rand.randint(1,20)
 
 text1 = viz.addText3D(str(correctSum),pos=[-0.3,3,10])
 text2 = viz.addText3D(str(incorrectSum),pos=[9.3,3,10])
