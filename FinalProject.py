@@ -280,7 +280,7 @@ def celebration(e):
 			duck3.visible(viz.ON)
 			instructions.setText("Congrats! You have gotten all the questions right!")
 			cheering = viz.addAudio('cheering.wav')
-			back_music.play()
+			cheering.play()
 		else:
 			instructions.setText(str(correct) + " correct. No Celebration for you :(")
 			
