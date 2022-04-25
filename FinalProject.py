@@ -5,21 +5,23 @@ import vizinfo
 import vizproximity
 import vizshape
 import random
-
+import vizcam
 
 viz.setMultiSample(4)
 viz.fov(60)
 viz.go()
 
-ground = viz.addChild('ground.osgb')
-ground.setPosition(0,0,20)
-ground = viz.addChild('ground.osgb')
-ground.setPosition(0,0,40)
-sky = viz.addChild('sky_day.osgb')
+# WASD movement
+viz.cam.setHandler(vizcam.KeyboardCamera())
+viz.MainView.setPosition([5,1.8,-10])
 
+sky = viz.addChild('sky_day.osgb')
+environment = viz.addChild('game_environment.osgb')
+
+# Debug mode = 'e'
 manager = vizproximity.Manager()
-manager.setDebug(viz.ON)
-debugEventHandle = vizact.onkeydown('d',manager.setDebug,viz.TOGGLE)
+manager.setDebug(viz.OFF)
+debugEventHandle = vizact.onkeydown('e',manager.setDebug,viz.TOGGLE)
 
 #Play background music
 back_music = viz.addAudio('back_music.wav')
@@ -63,7 +65,7 @@ manager.addSensor(sensor6)
 
 correct = 0
 hintpanel = vizinfo.InfoPanel(align = viz.ALIGN_RIGHT_TOP, icon=False,key=None)
-hintpanel.setText("Press the key of the number of your question for a hint!")
+hintpanel.setText("Press the key (1-3) of the question your on for a hint!")
 
 pigeon = viz.addAvatar('pigeon.cfg')
 pigeon.setPosition(4.5,0,10)
@@ -110,7 +112,7 @@ number4 = random.randint(1,10)
 correctDifference = number3 - number4
 incorrectDifference = random.randint(2,20)
 while incorrectDifference == correctDifference:
-	incorrectDifference = rand.randint(1,20)
+	incorrectDifference = random.randint(1,20)
 
 number5 = random.randint(1,10)
 number6 = random.randint(1,10)
@@ -292,5 +294,3 @@ def celebration(e):
 			
 manager.onEnter(None,CelSetUp)
 manager.onEnter(None, celebration)
-
-
