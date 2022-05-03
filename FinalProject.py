@@ -17,6 +17,11 @@ viz.MainView.setPosition([5,1.8,-10])
 
 sky = viz.addChild('sky_day.osgb')
 environment = viz.addChild('game_environment.osgb')
+mylight = viz.addLight()
+mylight.enable()
+mylight.position(0, 1, 0)
+mylight.spread(180)
+mylight.intensity(2)
 
 # Debug mode = 'e'
 manager = vizproximity.Manager()
