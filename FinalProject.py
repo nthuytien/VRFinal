@@ -299,3 +299,11 @@ def celebration(e):
 			
 manager.onEnter(None,CelSetUp)
 manager.onEnter(None, celebration)
+
+#Wheelbarrow Easter egg
+
+#Create a timer to spin an object.
+myObject = viz.add('wheelbarrow.ive')
+#This timer has the function embedded within it.
+#It will go off 10 times, every 2 seconds.
+vizact.ontimer2( 2,10, myObject.addAction, vizact.spin(0,1,0,30,1))
